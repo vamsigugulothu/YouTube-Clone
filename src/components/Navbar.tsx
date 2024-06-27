@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div className="grid grid-flow-col px-4 shadow-lg items-center">
-      <div className="col-span-1 flex items-center justify-start">
+      <div className="col-span-10 lg:col-span-1 flex items-center justify-start">
         <img
           src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png"
           alt="hamburger"
@@ -17,7 +17,7 @@ const Navbar = () => {
           className="h-14 cursor-pointer"
         />
       </div>
-      <div className="col-span-10 flex items-center justify-center">
+      <div className="col-span-10 hidden lg:block sm:flex items-center justify-center">
         <div className="w-3/5 mx-auto flex items-center">
           <input
             type="text"
