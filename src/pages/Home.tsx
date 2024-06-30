@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { URL } from "../constants/ApiContants";
 import VideoCard from "../components/VideoCard";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,9 @@ const Home = () => {
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
       {videoList?.map((video) => (
-        <VideoCard key={video.id} data={video} />
+        <Link key={video.id} to={`watch?v=${video.id}`}>
+          <VideoCard data={video} />
+        </Link>
       ))}
     </div>
   );

@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const sidebarItems = [
@@ -29,18 +31,18 @@ const Sidebar = () => {
         name: "You",
         items: [
           {
-            name: "Home",
-            url: "/",
+            name: "My Channel",
+            url: "/my-channel",
             icon: "",
           },
           {
-            name: "Shorts",
-            url: "/shorts",
+            name: "History",
+            url: "/history",
             icon: "",
           },
           {
-            name: "Subscriptions",
-            url: "/subscriptions",
+            name: "Playlist",
+            url: "/playlist",
             icon: "",
           },
         ],
@@ -48,24 +50,38 @@ const Sidebar = () => {
     },
   ];
 
+  const { showSidebar } = useSelector((store) => store.appData);
+
   return (
-    <div className="h-screen w-36 shadow-md">
-      <div className="py-4 px-2">
-        {sidebarItems.map((section, key) => {
-          return (
-            <div key={key} className="py-2">
-              <label className="font-semibold">{section.section.name}</label>
-              {section.section.items.map((item, i) => (
-                <div key={i} className="py-1 my-2">
-                  <h4 className="text-sm">{item.name}</h4>
+    <>
+      {showSidebar && (
+        <div className="h-screen min-w-44 shadow-md">
+          <div className="py-4 px-2">
+            {sidebarItems.map((section, key) => {
+              return (
+                <div key={key} className="py-1">
+                  <label className="font-semibold">
+                    {section.section.name}
+                  </label>
+                  {section.section.items.map((item, i) => (
+                    <div
+                      key={i}
+                      className="px-2 py-1 cursor-pointer my-2 hover:bg-slate-100 rounded-md"
+                    >
+                      <Link to={item.url}>
+                        {" "}
+                        <h4 className="text-sm">{item.name}</h4>
+                      </Link>
+                    </div>
+                  ))}
+                  <hr />
                 </div>
-              ))}
-              <hr />
-            </div>
-          );
-        })}
-      </div>
-    </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
