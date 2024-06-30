@@ -3,10 +3,17 @@ name: deploy youtube
 on: [push]
 
 jobs:
-  build and deploy: 
+  build and deploy:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Repository Checkout
-       uses: actions/checkout@v4
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
       - name: Install Dependencies
         run: npm install
