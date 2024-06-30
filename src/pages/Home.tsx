@@ -3,20 +3,33 @@ import { URL } from "../constants/ApiContants";
 import VideoCard from "../components/VideoCard";
 
 const Home = () => {
-  const [videoList, setVideoList] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [videoList, setVideoList] = useState([]);
+
   useEffect(() => {
     async function fetchPopularVideos() {
-      const response = await fetch(URL.popularVideos, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      const data = await response.json();
-      setVideoList(data.items);
-      console.log("data", data);
+      try {
+        setLoading(true);
+        const response = await fetch(URL.popularVideos, {
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        const data = await response.json();
+        setVideoList(data.items);
+        console.log("data", data);
+      } catch (err) {
+        console.log("Failed to load videos", err);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchPopularVideos();
   }, []);
+
+  if (loading) {
+    return <div className="text-center">Loading...</div>;
+  }
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
       {videoList?.map((video) => (
