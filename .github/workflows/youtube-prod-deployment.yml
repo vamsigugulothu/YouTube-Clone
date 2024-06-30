@@ -1,6 +1,6 @@
 name: deploy youtube
 
-on:[push]
+on: [push]
 
 jobs:
   build and deploy: 
