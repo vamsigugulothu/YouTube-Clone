@@ -1,0 +1,12 @@
+name: deploy youtube
+
+on:[push]
+
+jobs:
+  build and deploy: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Repository Checkout
+       uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
