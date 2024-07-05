@@ -108,3 +108,40 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   }
 }
+
+
+
+
+
+// {
+//   "compilerOptions": {
+//     "jsx": "react",
+//     "types": ["react"],
+//     "isolatedModules": true,
+//     "target": "es2016",
+//     "moduleResolution": "node",
+//     "noEmit": true,
+//     "module": "commonjs",
+//     "esModuleInterop": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "strict": true,
+//     "skipLibCheck": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "@app/*": ["src/*"],
+//       "@app/components": ["./src/components"],
+//       "@eg/core": ["../eg-mobile-rn/libs/core"],
+//       "@eg/ui": ["../eg-mobile-rn/libs/ui"]
+      
+//     }
+//   },
+//   "exclude": ["node_modules"]
+// }
+
+
+
+
+
+
+
+
