@@ -14,7 +14,7 @@ const Player = () => {
   //close sidebar on opening videoplayer
   useEffect(() => {
     dispatch(closeSidebar({}));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     async function fetchVideoDetails() {
