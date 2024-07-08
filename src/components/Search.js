@@ -6,19 +6,18 @@ const Search = () => {
   // const [suggestions, setSuggestion] = useState([]);
 
   useEffect(() => {
+    const fetchSuggestions = async () => {
+      try {
+        const data = await fetch(URL.searchSuggestions + searchQuery);
+        const json = await data.json();
+        console.log("json", json);
+        // setSuggestion(json[1]);
+      } catch (e) {
+        console.log("Failed to fetch suggestions", e);
+      }
+    };
     fetchSuggestions();
   }, [searchQuery]);
-
-  const fetchSuggestions = async () => {
-    try {
-      const data = await fetch(URL.searchSuggestions + searchQuery);
-      const json = await data.json();
-      console.log("json", json);
-      // setSuggestion(json[1]);
-    } catch (e) {
-      console.log("Failed to fetch suggestions", e);
-    }
-  };
 
   return (
     <div>
