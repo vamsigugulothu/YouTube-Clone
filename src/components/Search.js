@@ -3,7 +3,7 @@ import { URL } from "../constants/ApiContants";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [suggestions, setSuggestion] = useState([]);
+  // const [suggestions, setSuggestion] = useState([]);
 
   useEffect(() => {
     fetchSuggestions();
@@ -14,7 +14,7 @@ const Search = () => {
       const data = await fetch(URL.searchSuggestions + searchQuery);
       const json = await data.json();
       console.log("json", json);
-      setSuggestion(json[1]);
+      // setSuggestion(json[1]);
     } catch (e) {
       console.log("Failed to fetch suggestions", e);
     }
