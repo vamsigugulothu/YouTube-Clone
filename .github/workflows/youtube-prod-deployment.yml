@@ -3,7 +3,7 @@ name: deploy youtube
 on: [push]
 
 jobs:
-  build and deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Checkout
