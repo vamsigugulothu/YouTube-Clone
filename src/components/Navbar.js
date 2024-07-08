@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleShowSidebar } from "../utils/appSlice";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Navbar = () => {
   };
   return (
     <div className="grid grid-flow-col px-4 shadow-lg items-center">
-      <div className="col-span-10 lg:col-span-1 flex items-center justify-start">
+      <div className="col-span-10 md:col-span-1 flex items-center justify-start">
         <button onClick={handleShowSidebar}>
           <img
             src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png"
@@ -29,16 +30,9 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="col-span-10 hidden lg:block sm:flex items-center justify-center">
-        <div className="w-3/5 mx-auto flex items-center">
-          <input
-            type="text"
-            className="border border-gray-400 flex-grow px-4 py-1 rounded-l-full"
-          />
-          <button className="border border-gray-400 py-1   px-4 rounded-r-full">
-            Search
-          </button>
-        </div>
+      <div className="col-span-10 hidden md:block sm:flex items-center justify-center">
+        {" "}
+        <Search />
       </div>
       <div className="col-span-1 flex items-center justify-center">Sign-in</div>
     </div>
