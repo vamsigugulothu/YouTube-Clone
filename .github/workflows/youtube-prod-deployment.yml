@@ -15,6 +15,9 @@ jobs:
       - name: Repository Checkout
         uses: actions/checkout@v4
 
+      - name: Display Branch Name
+        run: echo "Current Branch: ${{ github.ref }}"
+
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
