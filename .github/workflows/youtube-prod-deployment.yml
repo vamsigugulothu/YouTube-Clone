@@ -35,7 +35,6 @@ jobs:
         run: npm run build
 
       - name: Deploy to Netlify
-        run: echo "Current Branch: ${{ github.ref }}" 
         run: |
           prod_flag=""
           if [ "${{ github.ref }}" == "refs/heads/master" ]; then
