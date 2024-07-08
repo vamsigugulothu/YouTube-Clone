@@ -14,16 +14,17 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
+
       - name: Install Netlify
         run: npm install netlify-cli@17.10.1 -g
 
       - name: Install Dependencies
         run: npm install
-      
-      -name: Build Project
+
+      - name: Build Project
         run: npm run build
-      
-      -name: Deploy to Netlify
+
+      - name: Deploy to Netlify
         id: netlify_deploy
         run: |
           netlify_deploy \
